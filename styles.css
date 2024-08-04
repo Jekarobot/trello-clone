@@ -1,0 +1,85 @@
+/*!******************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
+  \******************************************************************/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    margin-top: 20px;
+  }
+  
+  .columns {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 20px 0;
+  }
+  
+  .column {
+    width: 30%;
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .column h2 {
+    text-align: center;
+  }
+  
+  .card {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: grab;
+    user-select: none;
+  }
+  
+  .card.dragging {
+    cursor: grabbing !important;
+  }
+  
+  button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .placeholder {
+    background-color: #ddd;
+    border: 2px dashed #bbb;
+    height: 50px;
+    margin: 10px 0;
+  }
+
+  .card.dragging {
+    cursor: grabbing; 
+  }
+
+  .card-input {
+    width: calc(100% - 10px);
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
