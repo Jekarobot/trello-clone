@@ -1,36 +1,21 @@
-function addCard(columnId) {
-    const column = document.getElementById(columnId);
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.setAttribute('draggable', 'true');
-    card.innerText = prompt('Введите текст карточки');
-    card.addEventListener('dragstart', dragStart);
-    card.addEventListener('dragend', dragEnd);
-    column.appendChild(card);
-  }
-  
-  function dragStart(event) {
-    event.dataTransfer.setData('text/plain', event.target.id);
-    setTimeout(() => event.target.style.display = 'none', 0);
-  }
-  
-  function dragEnd(event) {
-    setTimeout(() => event.target.style.display = 'block', 0);
-  }
-  
+import './styles.css';
+import { addCard, loadCards } from './dom';
+import { enableColumnDropping } from './dragAndDrop';
+
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.column').forEach(column => {
-    column.addEventListener('dragover', dragOver);
-    column.addEventListener('drop', drop);
+    enableColumnDropping(column);
+
+    const form = column.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input');
+      addCard(column.id, input.value);
+      input.value = '';
+    });
   });
-  
-  function dragOver(event) {
-    event.preventDefault();
-  }
-  
-  function drop(event) {
-    event.preventDefault();
-    const cardId = event.dataTransfer.getData('text/plain');
-    const card = document.getElementById(cardId);
-    event.target.appendChild(card);
-  }
-  
+
+  loadCards();
+});
+
+window.addCard = addCard;
