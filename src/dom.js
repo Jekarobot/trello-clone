@@ -24,7 +24,6 @@ export function addCard(columnId, cardText) {
     initializeDragAndDrop(card);
     column.appendChild(card);
 
-    // Обновляем состояние и инкрементируем счетчик
     state.columns[columnId] = state.columns[columnId] || [];
     state.columns[columnId].push({ id: card.id, text: cardText });
     saveState(state, cardIdCounter + 1);

@@ -17,9 +17,8 @@ export function loadState() {
 }
 
 export function saveState(state, cardIdCounter) {
-  console.log('Сохраняем состояние:', state, 'Счетчик:', cardIdCounter);
   localStorage.setItem(STATE_KEY, JSON.stringify(state));
-  localStorage.setItem(ID_COUNTER_KEY, cardIdCounter.toString()); // Преобразование к строке для хранения
+  localStorage.setItem(ID_COUNTER_KEY, cardIdCounter.toString());
 }
 
 export function addCardToState(columnId, card, cardIdCounter) {
